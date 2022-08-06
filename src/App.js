@@ -44,9 +44,10 @@ function App() {
  let btnText = tenzies?"New Game":"Roll"
   return (
     <div className="App">
-      {tenzies && <div><h2>عااااش يا دينا</h2><Confetti /></div>}
+      {tenzies && <div><Confetti /></div>}
       <main className="main">
         <h1 className="title">Tenzies</h1>
+        {tenzies &&<h1 className="dina">💪💪💪عااااش يا دينا</h1>}
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         <div className="dice">
           {dice}
