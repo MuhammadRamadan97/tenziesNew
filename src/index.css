@@ -39,8 +39,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 8vh;
-  width: auto;
+  height: 10vh;
+  width: 10vh;
   padding: 1em;
   cursor: pointer;
 }
@@ -70,4 +70,17 @@ body {
 }
 .dina {
   color: darkviolet;
+}
+
+@media screen and (max-width: 600px) {
+  .die {
+    height: 8vh;
+    width: 8vh;
+  }
+}
+@media screen and (max-width: 400px) {
+  .die {
+    height: 6vh;
+    width: 6vh;
+  }
 }
