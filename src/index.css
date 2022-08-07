@@ -35,19 +35,20 @@ body {
   background: #ffffff;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  margin: 1em;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
-  width: 10vh;
+  height: 8vh;
+  width: auto;
+  padding: 1em;
   cursor: pointer;
 }
 
 .dice {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
-  gap: 1em;
+  gap: 3vw;
   margin-bottom: 2em;
 }
 
