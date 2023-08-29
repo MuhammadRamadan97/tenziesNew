@@ -2,61 +2,58 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 9px;
+  font-size: 10px;
 }
 body {
   margin: 0;
   background-color: #0b2434;
   padding: 20px;
   position: relative;
+  width: 100vw;
 }
 
 main {
-  width: 94vw;
-  height: 94vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
   position: absolute;
-  left: 3%;
+  width: 94vw;
+  height: 94vh;
+  left: 3vw;
   top: 3vh;
   border-radius: 2vh;
 }
 .dies {
   display: grid;
   grid-template: max-content max-content/ repeat(5, 1fr);
+  height: 35%;
+  width: 80%;
+  margin: 0 auto 1.5em auto;
   justify-items: center;
-  align-content: center;
-  height: 100%;
-  width: 85%;
-  margin: 1em auto 1em auto;
-  gap: 0.8rem;
+  column-gap: 2em;
 }
-.die {
-  width: 20vw;
-  height: 20vw;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 0.3rem;
 
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: auto auto 0.4em auto;
+.die {
+  width: fit-content;
+  height: 16vw;
   overflow: hidden;
   cursor: pointer;
-  font-size: 16vw;
-  font-weight: 800;
+  margin: 0;
+  font-size: 15vw;
+  font-weight: 400;
+  text-align: justify;
+
+  margin: 0.2em 0;
+
   user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
 .number {
   display: inline;
 }
@@ -65,7 +62,7 @@ main {
 .start-btn {
   padding: 0.5em 1.4em;
   font-size: 2.1rem;
-  margin-top: -1em;
+  margin-top: 2em;
   margin-bottom: 2em;
   border: none;
   font-weight: 600;
@@ -93,14 +90,14 @@ main {
 }
 
 .title {
-  margin-top: 2em;
+  margin-top: 1.5em;
   color: #2b283a;
   text-align: center;
   font-family: Karla;
   font-size: 2rem;
 }
 .subtitle {
-  margin: -0.5em 2em -3em 2em;
+  margin: -0.5em 2em -0.5em 2em;
   color: #4a4e74;
   text-align: center;
   font-family: Inter;
@@ -108,18 +105,23 @@ main {
 
 .congratulate {
   width: 90%;
-  margin: 5em auto;
+  height: 10%;
+  margin: auto;
   font-size: 2.3rem;
   text-align: center;
   color: rgb(87, 17, 153);
 }
 
-.rounds {
-  align-self: flex-start;
-  margin: 1em auto -1em 1em;
-  font-family: Inter;
+.head {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
+.time,
+.rounds {
+  font-family: inter;
+}
 .hidden {
   display: none;
 }
@@ -129,7 +131,7 @@ main {
 }
 @media (min-width: 300px) {
   html {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
@@ -137,26 +139,45 @@ main {
   html {
     font-size: 14px;
   }
+
+  .die {
+    width: max-width;
+    height: 12vw;
+    font-size: 12vw;
+  }
 }
 
 @media (min-width: 500px) {
   html {
-    font-size: 16px;
+    font-size: 17px;
+  }
+
+  .die {
+    width: max-width;
+    height: 11vw;
+    font-size: 11vw;
   }
 }
 
 @media (min-width: 600px) {
   html {
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .die {
+    width: max-width;
+    height: 10vw;
+    font-size: 10vw;
   }
 }
 
 @media (min-width: 700px) {
   html {
-    font-size: 24px;
+    font-size: 25px;
   }
   .die {
     width: max-width;
-    height: max-height;
+    height: 8vw;
+    font-size: 8vw;
   }
 }

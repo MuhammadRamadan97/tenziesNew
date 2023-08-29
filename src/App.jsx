@@ -12,15 +12,29 @@ function App() {
   const [dice, setDice] = useState(allNewDice())
   const [isWon, setIsWon] = useState(false)
   const [rounds, setRounds] = useState(0)
+  const [time, setTime] = useState(0)
   
 
   useEffect(() => {
     checkWin() && setIsWon(true)
   }, [dice])
 
+  useEffect(() => {
+    let interval 
+    if(!isWon){
+       interval = setInterval(() => setTime(time +1), 1000)
+    }
+    
+    return () => clearInterval(interval);
+  }, [time])
+
+  
+
   function generateRandomNumber() {
     return Math.floor(Math.random()*6)
   }
+
+
   function newDieFace() {
     
 
@@ -52,6 +66,7 @@ function startGame() {
 }
 function render() {
   setIsWon(false)
+  setTime(0)
   setRounds(0)
   setDice(allNewDice())
 }
@@ -62,8 +77,12 @@ function render() {
   return (
     <main>
 
-      {isWon && <Confetti />}
-      <h3 className="rounds">Rounds: {rounds}</h3>
+      {isWon && <Confetti className="confetti"/>}
+      <div className="head">
+        <h3 className="rounds">Rounds: {rounds}</h3>
+        <h3 className="time">time: {time} sec</h3>
+      </div>
+      
       <h1 className="title">Tenzies</h1>
       <h4 className="subtitle">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h4>
      {!isWon && <div className="dies">
