@@ -3,24 +3,28 @@ import Die from "./components/Die"
 import { nanoid } from 'nanoid'
 import Confetti from "react-confetti"
 
+const diceDotsArr = ["⚀","⚁","⚂","⚃","⚄","⚅"]
+
+
 
 function App() {
   
   const [dice, setDice] = useState(allNewDice())
   const [isWon, setIsWon] = useState(false)
-
+  const [rounds, setRounds] = useState(0)
+  
 
   useEffect(() => {
     checkWin() && setIsWon(true)
   }, [dice])
 
   function generateRandomNumber() {
-    return Math.floor(Math.random()*6 + 1)
+    return Math.floor(Math.random()*6)
   }
   function newDieFace() {
     
 
-    return {id:nanoid(), value:generateRandomNumber(), isHeld:false}
+    return {id:nanoid(), value :diceDotsArr[generateRandomNumber()], isHeld:false}
   }
   function allNewDice() {
     const arr = new Array(10).fill(0)
@@ -39,7 +43,7 @@ function checkWin() {
 }
 
 function rollDice() {
-  
+  setRounds(prevRounds => prevRounds + 1)
   setDice(oldDice => oldDice.map(die => die.isHeld ? die : newDieFace()))
 }
 
@@ -48,6 +52,7 @@ function startGame() {
 }
 function render() {
   setIsWon(false)
+  setRounds(0)
   setDice(allNewDice())
 }
 
@@ -56,7 +61,9 @@ function render() {
    
   return (
     <main>
+
       {isWon && <Confetti />}
+      <h3 className="rounds">Rounds: {rounds}</h3>
       <h1 className="title">Tenzies</h1>
       <h4 className="subtitle">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h4>
      {!isWon && <div className="dies">
